@@ -1,0 +1,19 @@
+{
+  "root": true,
+  "pages": [
+    "---Guide---",
+    "index",
+    "installation",
+    "cli",
+    "block",
+    "dark-mode",
+    "ruru-json",
+    "provider",
+    "hooks",
+    "animation",
+    "---Components---",
+    "...components",
+    "---Others---",
+    "[Github](https://github.com/ruru-m07/ruru-ui/)"
+  ]
+}

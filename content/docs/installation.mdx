@@ -1,0 +1,211 @@
+---
+title: Installation
+description: To get started with ruru UI, you'll need to install the necessary dependencies and set up your project structure. This guide will walk you through the process step by step.
+---
+
+import { Tabs as Rutabs, Tab as Rutab } from "ruru-ui/components/tabs";
+import { Tabs, Tab } from "fumadocs-ui/components/tabs";
+import { Step, Steps } from "fumadocs-ui/components/steps";
+
+<Rutabs items={["CLI", "Dependencies"]}>
+  <Rutab value={"CLI"}>
+  <Steps>
+    <Step>
+    
+    ### Run the CLI
+
+    Run the `ruru-ui-cli init` command to setup your project:
+
+   <Tabs items={["npm", "pnpm", "yarn", "bun"]}>
+      <Tab value={"npm"}>
+      ```bash
+      npx ruru-ui-cli@latest init
+      ```
+      </Tab>
+      <Tab value={"pnpm"}>
+      ```bash
+      pnpm dlx ruru-ui-cli@latest init
+      ```
+      </Tab>
+      <Tab value={"yarn"}>
+      ```bash
+      npx ruru-ui-cli@latest init
+      ```
+      </Tab>
+      <Tab value={"bun"}>
+      ```bash
+      bunx --bun ruru-ui-cli@latest init
+      ```
+    </Tab>
+   </Tabs>
+    
+    </Step>
+    
+    <Step>
+    
+    ### Configure components
+
+    You will need to answer a few questions to configure the `ruru.json` file:
+
+    ```txt
+// [!code word:Yes]
+// [!code word:No]
+// [!code word:./app/globals.css]
+// [!code word:./tailwind.config.js]
+// [!code word:(Leave blank if not)]
+// [!code word:@/components/ui]
+// [!code word:@/lib/utils]
+// [!code word:@/provider]
+// [!code word:@/interfaces]
+◇ Would you like to use TypeScript (recommended)? Yes
+◇ Where is your global CSS file? ./app/globals.css
+◇ Where is your tailwind.config.js located? ./tailwind.config.js
+◇ Would you like to use CSS variables for colors? Yes
+◇ Are you using a custom tailwind prefix eg. tw-? (Leave blank if not)
+◇ Configure the import alias for components: @/components/ui
+◇ Configure the import alias for utils: @/lib/utils
+◇ Configure the import alias for provider: @/provider
+◇ Configure the import alias for interfaces: @/interfaces
+◇ Would you like to use RSC ? Yes
+◇ Write configuration to ruru.json. Proceed? Yes
+
+    ```
+
+    </Step>
+
+    <Step>
+
+    ### Add the Provider
+
+    Add the `RuruProvider` component to your layout file:
+
+```tsx title="layout.tsx"
+// [!code word:RuruProvider]
+import { RuruProvider } from "@/provider";
+
+export default function RootLayout() {
+  return (
+    <html lang="en">
+      <body>
+        <RuruProvider>{children}</RuruProvider>
+      </body>
+    </html>
+  );
+}
+```
+    </Step>
+    <Step>
+
+    ### That's it
+
+    Now you can start adding components
+
+       <Tabs items={["npm", "pnpm", "yarn", "bun"]}>
+      <Tab value={"npm"}>
+      ```bash
+      npx ruru-ui-cli@latest add button
+      ```
+      </Tab>
+      <Tab value={"pnpm"}>
+      ```bash
+      pnpm dlx ruru-ui-cli@latest add button
+      ```
+      </Tab>
+      <Tab value={"yarn"}>
+      ```bash
+      yarn dlx ruru-ui-cli@latest add button
+      ```
+      </Tab>
+      <Tab value={"bun"}>
+      ```bash
+      bunx --bun ruru-ui-cli@latest add button
+      ```
+    </Tab>
+
+   </Tabs>
+
+    This command adds the `button` component to your project.
+
+    ```tsx title="App.tsx"
+    // [!code word:Button]
+    import { Button } from "@/components/ui/button"  // [!code highlight]
+
+    export default function App() {
+      return (
+        <div>
+          <Button>Click me</Button>  // [!code highlight]
+        </div>
+      )
+    }
+    ```
+
+    </Step>
+
+  </Steps>
+  </Rutab>
+
+  <Rutab value="Dependencies">
+    <Steps>
+    <Step>
+      ### Install Dependencies
+
+      First, you'll need to install **ruru UI** and its peer dependencies. You can do this using npm or yarn:
+
+```package-install
+npm i ruru-ui@latest
+```
+    </Step>
+    <Step>
+      ### Import Styles
+
+      Next, you'll need to import **ruru UI**'s styles into your project. You can do this by including the following line in your main stylesheet:
+
+      ```tsx title="layout.tsx"
+      import "ruru-ui/style.css";
+      ```
+    </Step>
+    <Step>
+
+### Setup Provider
+
+To provide a context to all components in your project, you'll need to add the `RuruProvider` component to your layout file:
+
+```tsx title="layout.tsx"
+// [!code word:RuruProvider]
+import { RuruProvider } from "ruru-ui/provider";
+
+export default function RootLayout() {
+  return (
+    <html lang="en">
+      <body>
+        <RuruProvider>{children}</RuruProvider>
+      </body>
+    </html>
+  );
+}
+```
+    </Step>
+    <Step>
+
+### Usage
+
+Now that you've installed **ruru UI** and imported its styles, you can start using the components in your project. Here's an example of how you can use a button component:
+
+```tsx title="App.tsx"
+// [!code word:Button]
+import { Button } from "ruru-ui/components/button"; // [!code highlight]
+
+function App() {
+  return (
+    <Button>Click me</Button> // [!code highlight]
+  );  
+}
+```  
+    </Step>
+    </Steps>
+  </Rutab>
+</Rutabs>
+
+  That's it! You're now ready to start building beautiful interfaces with **ruru UI**. If you have any questions or need further assistance, feel free to reach out to us on [GitHub Discussions](https://github.com/ruru-m07/ruru-ui/discussions/3).
+
+---
